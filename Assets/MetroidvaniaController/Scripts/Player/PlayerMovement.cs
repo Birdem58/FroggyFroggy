@@ -5,9 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
+
+	CharacterSwimControler swimController;
+
+	public WaterDetection waterDetection;
+
 	public Animator animator;
 
 	public float runSpeed = 40f;
+
+
 
 	float horizontalMove = 0f;
 	bool jump = false;
@@ -60,9 +67,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		// Move our character
+	
+        // Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
 		jump = false;
 		dash = false;
+		
+		
 	}
 }
